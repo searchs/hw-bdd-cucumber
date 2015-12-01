@@ -4,8 +4,9 @@ Given /the following movies exist/ do |movies_table|
   movies_table.hashes.each do |movie|
     # each returned element will be a hash whose key is the table header.
     # you should arrange to add that movie to the database here.
+
+ page.should have_content movie[:title]
   end
-  fail "Unimplemented"
 end
 
 # Make sure that one string (regexp) occurs before or after another one
