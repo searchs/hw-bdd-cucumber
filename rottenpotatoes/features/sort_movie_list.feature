@@ -23,8 +23,10 @@ Background: movies have been added to database
 
 Scenario: sort movies alphabetically
   When I follow "Movie Title"
-  Then I should see the movies sorted by "Movie Title in ascending order
+  Then I should see "Aladdin" before "Chicken Run"
+#  Then I should see the movies sorted by "Movie Title in ascending order
 
-Scenario: sort movies in increasing order of release date
+
+  Scenario: sort movies in increasing order of release date
   When I follow "Release Date"
   Then I should see the movies sorted by "Release Date" in ascending ordet

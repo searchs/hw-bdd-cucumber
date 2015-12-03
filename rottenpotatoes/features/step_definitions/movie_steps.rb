@@ -1,11 +1,17 @@
 # Add a declarative step here for populating the DB with movies.
+# rake db:reset db:migrate
+
 
 Given /the following movies exist/ do |movies_table|
+  pp "Ready to "
+  @movies = Movie.all
   movies_table.hashes.each do |movie|
     # each returned element will be a hash whose key is the table header.
     # you should arrange to add that movie to the database here.
+    movie['title'].present?
+    movie['rating'].present?
+    movie['release_date'].present?
 
- page.should have_content movie[:title]
   end
 end
 
@@ -15,7 +21,18 @@ end
 Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
   #  ensure that that e1 occurs before e2.
   #  page.body is the entire content of the page as a string.
-  fail "Unimplemented"
+
+  page.body.inc('table#movies').each do |tr|
+
+  end
+
+  # within_table('movie') do
+  #   p locate("//*[@title='#{e1['title']}']").tr.size
+  # end
+  # f = page.body.table[e1['title']].length
+  #
+  # s = page.body.table[e2['title']].length
+  # s > f == true
 end
 
 # Make it easier to express checking or unchecking several boxes at once
