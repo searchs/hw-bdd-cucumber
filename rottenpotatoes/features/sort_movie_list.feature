@@ -29,4 +29,6 @@ Scenario: sort movies alphabetically
 
   Scenario: sort movies in increasing order of release date
   When I follow "Release Date"
-  Then I should see the movies sorted by "Release Date" in ascending ordet
+  Then I should see "6\-Apr\-1968" before "21\-Jun\-2000"
+# Then I should see the movies sorted by "Release Date" in ascending order
+
