@@ -697,3 +697,59 @@ Started GET "/assets/jquery_ujs.self.js?body=1" for 127.0.0.1 at 2015-12-01 14:3
 
 
 Started GET "/assets/application.self.css?body=1" for 127.0.0.1 at 2015-12-01 15:07:39 +0000
+
+
+Started GET "/movies/" for 127.0.0.1 at 2015-12-05 13:25:27 +0000
+Processing by MoviesController#index as HTML
+Redirected to http://localhost:3000/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1
+Completed 302 Found in 13ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1" for 127.0.0.1 at 2015-12-05 13:25:27 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "NC-17"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1"}}
+  [1m[36mMovie Load (0.5ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'NC-17', 'PG', 'PG-13', 'R')[0m
+  Rendered movies/index.html.haml within layouts/application (20.4ms)
+Completed 200 OK in 271ms (Views: 264.1ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/application.self.css?body=1" for 127.0.0.1 at 2015-12-05 13:25:28 +0000
+
+
+Started GET "/assets/jquery.self.js?body=1" for 127.0.0.1 at 2015-12-05 13:25:28 +0000
+
+
+Started GET "/assets/jquery_ujs.self.js?body=1" for 127.0.0.1 at 2015-12-05 13:25:28 +0000
+
+
+Started GET "/assets/application.self.js?body=1" for 127.0.0.1 at 2015-12-05 13:25:28 +0000
+
+
+Started GET "/assets/application.self.css?body=1" for 127.0.0.1 at 2015-12-05 13:25:34 +0000
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BNC-17%5D=1&ratings%5BR%5D=1&commit=Refresh" for 127.0.0.1 at 2015-12-05 13:53:02 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"NC-17"=>"1", "R"=>"1"}, "commit"=>"Refresh"}
+Redirected to http://localhost:3000/movies?ratings%5BNC-17%5D=1&ratings%5BR%5D=1
+Completed 302 Found in 12ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?ratings%5BNC-17%5D=1&ratings%5BR%5D=1" for 127.0.0.1 at 2015-12-05 13:53:02 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"NC-17"=>"1", "R"=>"1"}}
+  [1m[35mMovie Load (0.9ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('NC-17', 'R')
+  Rendered movies/index.html.haml within layouts/application (19.1ms)
+Completed 200 OK in 68ms (Views: 58.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/jquery.self.js?body=1" for 127.0.0.1 at 2015-12-05 13:53:03 +0000
+
+
+Started GET "/assets/jquery_ujs.self.js?body=1" for 127.0.0.1 at 2015-12-05 13:53:03 +0000
+
+
+Started GET "/assets/application.self.js?body=1" for 127.0.0.1 at 2015-12-05 13:53:03 +0000
+
+
+Started GET "/assets/application.self.css?body=1" for 127.0.0.1 at 2015-12-05 13:53:03 +0000

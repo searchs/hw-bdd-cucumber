@@ -32,11 +32,10 @@ Feature: display list of movies filtered by MPAA rating
     # enter step to "submit" the search form on the homepage
     When I press "Refresh"
     # enter step(s) to ensure that PG and R movies are visible
-    Then I should see only 'PG' and 'R' rated movies
+    Then I should see only "PG" and "R" rated movies
   # enter step(s) to ensure that other movies are not visible
-    And I should not see "PG-13"
-    And I should not see "G"
-    And I should not see "NC-17"
+
+    And I should not see "PG-13", "G" and "NC-17" rated movies
 
 
   Scenario: all ratings selected

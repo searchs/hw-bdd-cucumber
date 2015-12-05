@@ -23,7 +23,6 @@ Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
   pos_e1 = page.body.index(/[#{e1}]/)
   pos_e2 = page.body.index(/[#{e2}]/, pos_e1)
   pos_e2 > pos_e1
-
 end
 
 
@@ -41,4 +40,34 @@ end
 Then /I should see all the movies/ do
   # Make sure that all the movies in the app are visible in the table
   fail "Unimplemented"
+end
+
+
+Given(/^I check the "(.*?)" and "(.*?)" checkboxes$/) do |r1, r2|
+  p page.current_url + page.current_path
+  check "ratings_#{r1}"
+  check  "ratings_#{r2}"
+end
+
+
+Given(/^I uncheck "(.*?)", "(.*?)" and "(.*?)"$/) do |arg1, arg2, arg3|
+
+  uncheck "ratings_#{arg1}"
+  uncheck  "ratings_#{arg2}"
+  uncheck  "ratings_#{arg3}"
+end
+
+
+Then(/^I should see only "(.*?)" and "(.*?)" rated movies$/) do |r1, r2|
+  all('#movies tr > td:nth-child(2)').each do |td|
+    %w{#{r1} #{r2}}.should include td.text
+  end
+end
+
+
+Then(/^I should not see "(.*?)", "(.*?)" and "(.*?)" rated movies$/) do |nr1, nr2, nr3|
+
+  all('#movies tr > td:nth-child(2)').each do |td|
+    %w{#{nr1} #{nr2} #{nr3}}.should_not include td.text
+  end
 end
