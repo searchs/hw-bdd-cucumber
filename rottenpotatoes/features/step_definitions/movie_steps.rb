@@ -49,10 +49,10 @@ I check "#{r.strip}"
   }
 end
 
-Then /I should see all the movies/ do
-  # Make sure that all the movies in the app are visible in the table
-  fail "Unimplemented"
-end
+# Then /I should see all the movies/ do
+#   # Make sure that all the movies in the app are visible in the table
+#   fail "Unimplemented"
+# end
 
 
 Given(/^I check the "(.*?)" and "(.*?)" checkboxes$/) do |r1, r2|
@@ -77,18 +77,16 @@ end
 
 
 Then(/^I should not see "(.*?)", "(.*?)" and "(.*?)" rated movies$/) do |nr1, nr2, nr3|
+  r1 = nr1
 
   all('#movies tr > td:nth-child(2)').each do |td|
-    %w{#{nr1} #{nr2} #{nr3}}.should_not include td.text
+    %w{#{r1} #{nr2} #{nr3}}.should_not include td.text
   end
 end
 
 Given(/^I check all the ratings$/) do
   all_ratings = ["G", "PG", "PG-13", "NC-17", "R"]
-  # chk_rating = all_ratings.split(",")
-
   all_ratings.each { |c|
-
     step %{
 I check "#{c}"
              }
@@ -98,11 +96,10 @@ I check "#{c}"
 end
 
 
-
 Then(/^I should see all of the movies$/) do
   all_ratings = ["G", "PG", "PG-13", "NC-17", "R"]
   all('#movies tr > td:nth-child(2)').each do |td|
-    %w{#{r1} #{r2}}.should include td.text
+    %w{#{all_ratings[0]} all_ratings[1] all_ratings[2] all_ratings[3] all_ratings[4]}.should include td.text
   end
 end
 
