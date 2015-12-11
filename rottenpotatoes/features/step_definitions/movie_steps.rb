@@ -37,11 +37,11 @@ When /I (un)?check the following ratings: (.*)/ do |uncheck, rating_list|
   rts = rating_list.split(",")
 
   rts.each { |r|
-    if :uncheck.to_s.equal? "uncheck"
+    if uncheck.to_s.equal? "uncheck"
       step %{
 I uncheck "#{r.strip}"
            }
-    elsif :uncheck.to_s.equal? "check"
+    elsif uncheck.to_s.equal? "check"
       step %{
 I check "#{r.strip}"
              }
@@ -78,10 +78,15 @@ end
 
 Then(/^I should not see "(.*?)", "(.*?)" and "(.*?)" rated movies$/) do |nr1, nr2, nr3|
   r1 = nr1
+  r2 = nr2
+  r3 = nr3
 
-  all('#movies tr > td:nth-child(2)').each do |td|
-    %w{#{r1} #{nr2} #{nr3}}.should_not include td.text
-  end
+  page.should have_no_content('#{nr1}')
+  page.should have_no_content('#{nr2}')
+  page.should have_no_content('#{nr3}')
+  # all('#movies tr > td:nth-child(2)').each do |td|
+  #   %w{#{r1} #{r2} #{r3}}.should_not include td.text
+  # end
 end
 
 Given(/^I check all the ratings$/) do

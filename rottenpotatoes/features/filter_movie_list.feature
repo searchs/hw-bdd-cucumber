@@ -1,4 +1,3 @@
-@filter
 Feature: display list of movies filtered by MPAA rating
 
   As a concerned parent
@@ -22,7 +21,7 @@ Feature: display list of movies filtered by MPAA rating
 
     And  I am on the RottenPotatoes home page
 
-  @more
+
   Scenario: restrict to movies with 'PG' or 'R' ratings
 
       # enter step(s) to check the 'PG' and 'R' checkboxes
